@@ -48,7 +48,7 @@ class AuthorResetForm extends Component
             ])->delete();
 
             $success_token = Str::random(64);
-            session()->flash('success', 'Your password has been updated successfully. Login with your email (<span>'.$this->email.'</span>) and your new password.');
+            session()->flash('success', 'Your password has been updated successfully. Login with your email ('.$this->email.') and your new password.');
 
             $this->redirectRoute('author.login', ['tkn' => $success_token, 'UEmail' => $this->email]);    
         }
