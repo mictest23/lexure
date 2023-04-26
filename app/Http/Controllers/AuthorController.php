@@ -17,7 +17,13 @@ class AuthorController extends Controller
         return redirect()->route('author.login');
     }
 
+    public function resetform(Request $request, $token = null){
+        $data = [
+            'pageTitle' => 'Reset Password'
+        ];
 
+        return view('back.pages.auth.reset',$data)->with(['token' => $token, 'email' => $request->email]);
+    }
 
 
 
