@@ -21,33 +21,7 @@
           <div class="tab-content">
             <div class="tab-pane active show" id="tabs-details">
               <div>
-                <form method="post">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label class="form-label">Name</label>
-                                <input type="text" class="form-control" name="example-text-input" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label class="form-label">Username</label>
-                                <input type="text" class="form-control" name="example-text-input" placeholder="Username">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="text" class="form-control" name="example-text-input" placeholder="Email" disabled>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Biography</label>
-                        <textarea class="form-control" name="example-textarea-input" rows="6" placeholder="Content..">Biography here</textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
-                </form>
+                <livewire:author-personal-details />
               </div>
             </div>
             <div class="tab-pane" id="tabs-password">
