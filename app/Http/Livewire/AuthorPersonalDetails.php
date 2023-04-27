@@ -35,7 +35,18 @@ class AuthorPersonalDetails extends Component
 
         $this->emit('updateAuthorProfileHeader');   //sends to controller livewire updateAuthorProfileHeader to refresh that certain component only.
         $this->emit('updateTopHeader');
+
+        $this->showToastr('Your Profile info have been successfully updated.', 'success');
     }
+
+
+    public function showToastr($message, $type){
+        return $this->dispatchBrowserEvent('showToastr', [
+            'type' => $type,
+            'message' => $message
+        ]);
+    }
+
 
     public function render(){
         return view('livewire.author-personal-details');

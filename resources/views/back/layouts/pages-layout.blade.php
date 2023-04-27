@@ -20,6 +20,7 @@
     <link href="./back/dist/css/tabler-flags.min.css?1674944402" rel="stylesheet"/>
     <link href="./back/dist/css/tabler-payments.min.css?1674944402" rel="stylesheet"/>
     <link href="./back/dist/css/tabler-vendors.min.css?1674944402" rel="stylesheet"/>
+    <link href="./back/dist/libs/ijabo/ijabo.min.css" rel="stylesheet" rel="stylesheet"/>
     @stack('stylesheets')
     @livewireStyles
     <link href="./back/dist/css/demo.min.css?1674944402" rel="stylesheet"/>
@@ -51,6 +52,10 @@
       </div>
     </div>
     <!-- Libs JS -->
+    <script src="./back/dist/libs/jquery/jquery-3.6.0.min.js" defer></script>
+    <script src="./back/dist/libs/ijabo/ijabo.min.js" defer></script>
+
+  
     <script src="./back/dist/libs/apexcharts/dist/apexcharts.min.js?1674944402" defer></script>
     <script src="./back/dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1674944402" defer></script>
     <script src="./back/dist/libs/jsvectormap/dist/maps/world.js?1674944402" defer></script>
@@ -59,6 +64,24 @@
     <script src="./back/dist/js/tabler.min.js?1674944402" defer></script>
     @stack('scripts')
     @livewireScripts
+
+    <script>
+      window.addEventListener('showToastr', function(event){
+        toastr.remove();
+        if(event.detail.type === 'info'){
+          toastr.info(event.detail.message);
+        } else if(event.detail.type === 'success'){
+          toastr.success(event.detail.message);
+        } else if(event.detail.type === 'error'){
+          toastr.error(event.detail.message);
+        } else if(event.detail.type === 'warning'){
+          toastr.warning(event.detail.message);
+        } else {
+          return false;
+        }
+      });
+    </script>
+
     <script src="./back/dist/js/demo.min.js?1674944402" defer></script>
   </body>
 </html>
