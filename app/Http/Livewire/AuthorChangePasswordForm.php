@@ -16,7 +16,7 @@ class AuthorChangePasswordForm extends Component{
             'current_password' => [
                 'required', function($attribute, $value, $fail){
                     if(!Hash::check($value, User::find(auth('web')->id())->password )){
-                        return $fail(__('The curren password is incorrect'));
+                        return $fail(__('The current password is incorrect'));
                     }
                 },
             ],

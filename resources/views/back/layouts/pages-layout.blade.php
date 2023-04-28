@@ -21,6 +21,9 @@
     <link href="./back/dist/css/tabler-payments.min.css?1674944402" rel="stylesheet"/>
     <link href="./back/dist/css/tabler-vendors.min.css?1674944402" rel="stylesheet"/>
     <link href="./back/dist/libs/ijabo/ijabo.min.css" rel="stylesheet" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="{{ asset('back/dist/libs/ijaboCropTool/ijaboCropTool.min.css') }}">
+
     @stack('stylesheets')
     @livewireStyles
     <link href="./back/dist/css/demo.min.css?1674944402" rel="stylesheet"/>
@@ -52,7 +55,7 @@
       </div>
     </div>
     <!-- Libs JS -->
-    <script src="./back/dist/libs/jquery/jquery-3.6.0.min.js" defer></script>
+    {{-- <script src="./back/dist/libs/jquery/jquery-3.6.0.min.js" defer></script> --}}
     <script src="./back/dist/libs/ijabo/ijabo.min.js" defer></script>
 
   
@@ -60,9 +63,15 @@
     <script src="./back/dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1674944402" defer></script>
     <script src="./back/dist/libs/jsvectormap/dist/maps/world.js?1674944402" defer></script>
     <script src="./back/dist/libs/jsvectormap/dist/maps/world-merc.js?1674944402" defer></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="{{ asset('back/dist/libs/ijaboCropTool/ijaboCropTool.min.js') }}"></script> 
+
+    @stack('scripts')
+
     <!-- Tabler Core -->
     <script src="./back/dist/js/tabler.min.js?1674944402" defer></script>
-    @stack('scripts')
     @livewireScripts
 
     <script>
