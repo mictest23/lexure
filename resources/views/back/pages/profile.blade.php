@@ -25,8 +25,11 @@
               </div>
             </div>
             <div class="tab-pane" id="tabs-password">
-              <h4>Profile tab</h4>
-              <div>Fringilla egestas nunc quis tellus diam rhoncus ultricies tristique enim at diam, sem nunc amet, pellentesque id egestas velit sed</div>
+              <div>
+
+               <livewire:author-change-password-form />
+
+              </div>
             </div>
           </div>
         </div>
