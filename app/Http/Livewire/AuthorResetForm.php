@@ -44,13 +44,13 @@ class AuthorResetForm extends Component
                 'password'=>Hash::make($this->new_password)
             ]);
             DB::table('password_resets')->where([
-                'email'=>$this->email 
+                'email'=>$this->email
             ])->delete();
 
             $success_token = Str::random(64);
             session()->flash('success', 'Your password has been updated successfully. Login with your email ('.$this->email.') and your new password.');
 
-            $this->redirectRoute('author.login', ['tkn' => $success_token, 'UEmail' => $this->email]);    
+            $this->redirectRoute('author.login', ['tkn' => $success_token, 'UEmail' => $this->email]);
         }
 
     }
