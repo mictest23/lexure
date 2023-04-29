@@ -1,5 +1,5 @@
 <div>
-   
+
 
 
     <header class="navbar navbar-expand-md navbar-light d-print-none sticky-top">
@@ -134,7 +134,7 @@
                     </span>
                   </a>
                 </li>
-                
+
                 <li class="nav-item">
                   <a class="nav-link" href="./" >
                     <span class="nav-link-title">
@@ -158,11 +158,11 @@
                           All Posts
                         </a>
                       </div>
-    
+
                     </div>
                   </div>
                 </li>
-    
+
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
                     <span class="nav-link-title">
@@ -172,7 +172,7 @@
                   <div class="dropdown-menu">
                     <div class="dropdown-menu-columns">
                       <div class="dropdown-menu-column">
-                        <a class="dropdown-item" href="./layout-horizontal.html">
+                        <a class="dropdown-item" href="{{ route('author.settings') }}">
                           General Settings
                         </a>
                       </div>
