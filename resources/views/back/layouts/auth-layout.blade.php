@@ -16,6 +16,7 @@
     <title>@yield('pageTitle')</title>
     <!-- CSS files -->
     <base href="/">
+    <link rel="shorcut icon" href="{{ \App\Models\Setting::find(1)->blog_favicon }}" type="image/x-icon">
     <link href="./back/dist/css/tabler.min.css?1674944402" rel="stylesheet"/>
     <link href="./back/dist/css/tabler-flags.min.css?1674944402" rel="stylesheet"/>
     <link href="./back/dist/css/tabler-payments.min.css?1674944402" rel="stylesheet"/>
@@ -37,7 +38,7 @@
     <script src="./back/dist/js/demo-theme.min.js?1674944402"></script>
 
     @yield('content')
-    
+
     <script src="./back/dist/js/tabler.min.js?1674944402" defer></script>
     @stack('scripts')
     @livewireScripts

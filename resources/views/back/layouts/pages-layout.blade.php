@@ -16,6 +16,7 @@
     <title>@yield('pageTitle')</title>
     <!-- CSS files -->
     <base href="/">
+    <link rel="shorcut icon" href="{{ \App\Models\Setting::find(1)->blog_favicon }}" type="image/x-icon">
     <link href="./back/dist/css/tabler.min.css?1674944402" rel="stylesheet"/>
     <link href="./back/dist/css/tabler-flags.min.css?1674944402" rel="stylesheet"/>
     <link href="./back/dist/css/tabler-payments.min.css?1674944402" rel="stylesheet"/>
@@ -58,15 +59,16 @@
     {{-- <script src="./back/dist/libs/jquery/jquery-3.6.0.min.js" defer></script> --}}
     <script src="./back/dist/libs/ijabo/ijabo.min.js" defer></script>
 
-  
+
     <script src="./back/dist/libs/apexcharts/dist/apexcharts.min.js?1674944402" defer></script>
     <script src="./back/dist/libs/jsvectormap/dist/js/jsvectormap.min.js?1674944402" defer></script>
     <script src="./back/dist/libs/jsvectormap/dist/maps/world.js?1674944402" defer></script>
     <script src="./back/dist/libs/jsvectormap/dist/maps/world-merc.js?1674944402" defer></script>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-    <script src="{{ asset('back/dist/libs/ijaboCropTool/ijaboCropTool.min.js') }}"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ asset('back/dist/libs/ijaboCropTool/ijaboCropTool.min.js') }}"></script>
+    <script src="{{ asset('back/dist/libs/ijaboViewer/jquery.ijaboViewer.min.js') }}"></script>
 
     @stack('scripts')
 

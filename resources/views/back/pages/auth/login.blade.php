@@ -3,12 +3,12 @@
 @section('content')
 <div class="container container-tight py-4">
     <div class="text-center mb-4">
-      <a href="." class="navbar-brand navbar-brand-autodark"><img src="./back/static/logo.svg" height="36" alt=""></a>
+      <a href="." class="navbar-brand navbar-brand-autodark"><img src="{{ \App\Models\Setting::find(1)->blog_logo }}" height="36" alt=""></a>
     </div>
     <div class="card card-md">
       <div class="card-body">
         <h2 class="h2 text-center mb-4">Login to your account</h2>
-        
+
         <livewire:author-login-form/>
 
       </div>

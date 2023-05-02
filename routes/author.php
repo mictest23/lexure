@@ -19,5 +19,7 @@ Route::prefix('author')->name('author.')->group(function(){
         Route::view('/profile', 'back.pages.profile')->name('profile');                 //if you want to just get a view
         Route::post('/change-profile-picture', [AuthorController::class, 'changeProfilePicture'])->name('change-profile-picture');
         Route::view('/settings', 'back.pages.settings')->name('settings');
+        Route::post('/change-blog-logo', [AuthorController::class, 'changeBlogLogo'])->name('change-blog-logo');
+        Route::post('/change-blog-favicon', [AuthorController::class, 'changeBlogFavicon'])->name('change-blog-favicon');
     });
 });
