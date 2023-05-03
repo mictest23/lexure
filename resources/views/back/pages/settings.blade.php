@@ -34,6 +34,7 @@
             </div>
             <div class="tab-pane fade" id="tabs-profile-14" role="tabpanel">
 
+
               <div>
                   <div class="row">
                     <div class="col-md-6">
@@ -65,10 +66,14 @@
                   </div>
               </div>
 
+
             </div>
             <div class="tab-pane fade" id="tabs-activity-14" role="tabpanel">
-              <h4>Activity tab</h4>
-              <div>Donec ac vitae diam amet vel leo egestas consequat rhoncus in luctus amet, facilisi sit mauris accumsan nibh habitant senectus</div>
+             <div>
+
+                  <livewire:author-blog-social-media-form />
+
+             </div>
             </div>
           </div>
         </div>
