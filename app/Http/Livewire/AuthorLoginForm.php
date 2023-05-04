@@ -9,7 +9,13 @@ use Illuminate\Support\Facades\Auth;
 class AuthorLoginForm extends Component{
 
     public $login_id, $password;
-    
+    public $returnUrl;
+
+
+    public function mount(){     //for the return URL
+        $this->returnUrl = request()->returnUrl;
+    }
+
     public function LoginHandler(){
 
         $fieldType = filter_var($this->login_id, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';   //this validate if data is email or not
@@ -43,7 +49,14 @@ class AuthorLoginForm extends Component{
                 Auth::guard('web')->logout();
                 return redirect()->route('author.login')->with('fail', 'Your account had been blocked');
             } else {
-                return redirect()->route('author.home');
+                // return redirect()->route('author.home');
+
+                if($this->returnUrl != null){                               //condition for return URL
+                    return redirect()->to($this->returnUrl);
+                } else {
+                    redirect()->route('author.home');
+                }
+
             }
         } else {
             session()->flash('fail', 'Incorrect email/username or Password');
