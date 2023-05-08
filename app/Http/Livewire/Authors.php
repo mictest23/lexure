@@ -4,6 +4,9 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use Livewire\Component;
+use Nette\Utils\Random;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class Authors extends Component
 {
@@ -39,7 +42,50 @@ class Authors extends Component
 
 
         if($this->isOnline()){
-            dd('I am online');
+
+            $default_password = Random::generate(8);
+
+            $author = new User();
+            $author->name = $this->name;
+            $author->email = $this->email;
+            $author->username = $this->username;
+            $author->password = Hash::make($default_password);
+            $author->type = $this->author_type;
+            $author->direct_publish = $this->direct_publisher;
+            $saved = $author->save();
+
+
+            $data = array(
+                'name' => $this->name,
+                'username' => $this->username,
+                'email' => $this->email,
+                'password' => $default_password,
+                'url' => route('author.profile'),
+            );
+
+
+            $author_email = $this->email;
+            $author_name = $this->name;
+
+
+            if($data){
+
+                Mail::send('new-author-email-template', $data, function($message) use ($author_email, $author_name){
+                    $message->from('noreply@example.com', 'Larablog');
+                    $message->to($author_email, $author_name)
+                            ->subject('Account Creation');
+                });
+
+                $this->showToastr('New author has been added to blog', 'success');
+                $this->name = $this->email = $this->username = $this->author_type = $this->direct_publisher = null;
+                $this->dispatchBrowserEvent('hide_add_author_modal');
+
+            } else {
+                $this->showToastr('Something went wrong', 'error');
+            }
+
+
+
         } else {
             $this->showToastr('You are offline, check your connection and submit form again', 'error');
         }
