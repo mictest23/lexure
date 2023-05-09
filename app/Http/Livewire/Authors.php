@@ -7,26 +7,33 @@ use Livewire\Component;
 use Nette\Utils\Random;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Livewire\WithPagination;
 
 class Authors extends Component
 {
 
+    use WithPagination;
     public $name, $email, $username, $author_type, $direct_publisher;
+    public $search;
+    public $perPage = 8;
 
     protected $listeners = [
         'resetForms'
     ];
+
+
+    //in order to search the author even not found in the pagination
+    public function updatingSearch(){
+        $this->resetPage();
+    }
+
 
     public function resetForms(){             //reset forms when modal is exited
         $this->name = $this->email = $this->username = $this->author_type = $this->direct_publisher = null;
         $this->resetErrorBag();
     }
 
-    public function render()
-    {
-        // return view('livewire.authors', ['authors'=>User::all()]);
-        return view('livewire.authors', ['authors'=>User::where('id', '!=', auth()->id())->get() ]);
-    }
+
 
     public function addAuthor(){
         $this->validate([
@@ -106,5 +113,16 @@ class Authors extends Component
         } else {
             return false;
         }
+    }
+
+
+
+    public function render()
+    {
+        // return view('livewire.authors', ['authors'=>User::all()]);
+        return view('livewire.authors', [
+            'authors'=>User::search(trim($this->search))
+                            ->where('id', '!=', auth()->id())->paginate($this->perPage)
+        ]);
     }
 }
